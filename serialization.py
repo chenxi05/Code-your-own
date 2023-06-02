@@ -3,10 +3,10 @@ import pickle
 import game
 from os import path
 
-def save(user_name, pts):
-    if path.exists(user_name):
-        with open(user_name, "wb") as f:
-            pickle.dump(user_name, f)
+def save(user_info):
+    if path.exists(user_info):
+        with open(user_info, "wb") as f:
+            pickle.dump(user_info, f)
 
 def load(file):
     if path.exists(file):
@@ -14,10 +14,7 @@ def load(file):
             return pickle.load(f)
     return None
 
-USERS_FILE = "users.pkl"
-users = load(USERS_FILE)
-if users is None:
-    users = {}
-
-def print():
-    print("hello")
+USERS_FILE = "user_info.pkl"
+user_info = load(USERS_FILE)
+if user_info is None:
+    user_info = {}

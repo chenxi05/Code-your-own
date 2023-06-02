@@ -15,11 +15,11 @@ print("Welcome to our trivia game!")
 
 user_name=input("Please enter your username: ") 
 pts=0
-for i in range(len(trivia_questions)):
-    print(trivia_questions.keys[i])
-#     if answer:
-#        pts += 1
-    #   else:
-    #      continue
-
+for i in trivia_questions.keys():
+    answer = input(i) == trivia_questions[i]
+    if answer:
+        pts += 1
+    else:
+      continue
+    print(pts)
     

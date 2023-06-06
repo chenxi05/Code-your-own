@@ -10,20 +10,17 @@ trivia_questions = {
 }
 
 print("Welcome to our trivia game!")
-game = True
+game = input("Enter U for a new user and G to play again: ").upper() == "G"
 
-def playing():
-    if not game:
-        user_name=input("Please enter your username: ") 
-        pts=0
-    else:
-        for i in trivia_questions.keys():
-            answer = input(i) == trivia_questions[i]
-            if answer:
-                pts += 1
-            else:
-                continue
-            print()
-        score = ser.libel(user_name, pts)
-        print(score)
-    game = input("Enter U for a new user and G to play again: ").upper() == "G"
+if not game:
+    user_name=input("Please enter your username: ") 
+    pts=0
+    game = True
+while game:
+    for i in trivia_questions.keys():
+        answer = input(i) == trivia_questions[i]
+        if answer:
+            pts += 1
+        print()
+    print(pts)
+    game = False

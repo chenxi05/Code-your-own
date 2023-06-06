@@ -1,6 +1,5 @@
 #serialzation file
 import pickle
-import game
 from os import path
 
 def save(user_info):
@@ -13,8 +12,9 @@ def load(file):
         with open(file, "rb") as f:
             return pickle.load(f)
     return None
-
+"""
 USERS_FILE = "user_info.pkl"
 user_info = load(USERS_FILE)
 if user_info is None:
     user_info = {}
+"""

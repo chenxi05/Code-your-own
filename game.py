@@ -18,9 +18,12 @@ if not game:
     game = True
 while game:
     for i in trivia_questions.keys():
-        answer = input(i) == trivia_questions[i]
+        answer = input(i).capitalize() == trivia_questions[i]
         if answer:
             pts += 1
         print()
     print(pts)
     game = False
+
+info = ser.libel(user_name, pts)
+print(info)

@@ -3,7 +3,7 @@ import pickle
 from os import path
 
 def libel(username, pts):
-    if not pts.isinteger():
+    if not pts.is_integer():
         return
     else:
         data = {username: pts}

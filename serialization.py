@@ -2,10 +2,9 @@
 import pickle
 from os import path
 
-def save(user_info):
-    if path.exists(user_info):
-        with open(user_info, "wb") as f:
-            pickle.dump(user_info, f)
+def save(user_info, USER_FILE):
+    with open(USER_FILE, "wb") as f:
+        pickle.dump(user_info, f)
 
 def load(file):
     if path.exists(file):

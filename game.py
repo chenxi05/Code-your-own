@@ -44,8 +44,8 @@ while playing:
     game = input("Enter U for a new user, G to play again: ").upper() == "G"
 
 print()
-print("Thank you for playing!")
+print("Thank you for playing!\n")
 user_info = ser.load(USER_FILE)
 for i in user_info.keys():
-    print(i)
-    print(user_info[i])
+    print("SCORES:")
+    print(i +" : " + user_info[i])

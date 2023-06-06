@@ -9,11 +9,15 @@ trivia_questions = {
     "How many hearts does an octopus have? " : "3"
 }
 
-dictionary = {}
-
 print("Welcome to our trivia game!")
 game = input("Enter U for a new user and G to play again: ").upper() == "G"
 playing = True
+
+USER_FILE = "dictionary.pkl"
+user_info = ser.load(USER_FILE)
+if user_info is None:
+    dictionary = {}
+print(user_info)
 
 while playing:
     while not game:
@@ -28,8 +32,10 @@ while playing:
             print()
         print(pts)
         dictionary[user_name] = pts
-        print(dictionary)
+        ser.save(dictionary)
         game = False
-    game = input("Enter U for a new user and G to play again: ").upper() == "G"
+    playing = input("Would you like to play again? Enter Y or N: ").upper() == "Y"
+    game = input("Enter U for a new user, G to play again: ").upper() == "G"
+
 
         

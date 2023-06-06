@@ -2,13 +2,6 @@
 import pickle
 from os import path
 
-def libel(username, pts):
-    if not pts.is_integer():
-        return
-    else:
-        data = {username: pts}
-        return data
-
 def save(user_info):
     if path.exists(user_info):
         with open(user_info, "wb") as f:

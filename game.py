@@ -11,17 +11,21 @@ trivia_questions = {
 
 print("Welcome to our trivia game!")
 game = input("Enter U for a new user and G to play again: ").upper() == "G"
+print()
 playing = True
 
-USER_FILE = "dictionary.pkl"
+
+USER_FILE = "user_info.pkl"
 user_info = ser.load(USER_FILE)
 if user_info is None:
-    dictionary = {}
-print(user_info)
+    user_info = {}
 
 while playing:
     while not game:
-        user_name=input("Please enter your username: ") 
+        user_name=input("Please enter your username: ").capitalize()
+        if user_name  in user_info:
+            print ("Welcome back,", user_name)
+            print ("The last time you played, you got", user_info[user_name])
         pts=0
         game = True
     while game:
@@ -31,11 +35,17 @@ while playing:
                 pts += 1
             print()
         print(pts)
-        dictionary[user_name] = pts
-        ser.save(dictionary)
+        user_info[user_name] = pts
+        ser.save(user_info, USER_FILE)
         game = False
     playing = input("Would you like to play again? Enter Y or N: ").upper() == "Y"
+    if not playing:
+        break
     game = input("Enter U for a new user, G to play again: ").upper() == "G"
 
-
-        
+print()
+print("Thank you for playing!")
+user_info = ser.load(USER_FILE)
+for i in user_info.keys():
+    print(i)
+    print(user_info[i])

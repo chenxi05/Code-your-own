@@ -1,7 +1,5 @@
 import serialization as ser
 
-
-
 trivia_questions = {
     "Which country consumes the most chocolate per capita? " : "Switzerland",
     "What is the only edible food that never goes bad? " : "Honey",
@@ -12,14 +10,19 @@ trivia_questions = {
 }
 
 print("Welcome to our trivia game!")
+game = True
 
 def playing():
-    user_name=input("Please enter your username: ") 
-    pts=0
-    for i in trivia_questions.keys():
-        answer = input(i) == trivia_questions[i]
-        if answer:
-            pts += 1
-        else:
-            continue
-        print()
+    if not game:
+        user_name=input("Please enter your username: ") 
+        pts=0
+    else:
+        for i in trivia_questions.keys():
+            answer = input(i) == trivia_questions[i]
+            if answer:
+                pts += 1
+            else:
+                continue
+            print()
+        
+    game = input("Enter U for a new user and G to play again: ").upper() == "G"

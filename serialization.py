@@ -2,6 +2,13 @@
 import pickle
 from os import path
 
+def libel(username, pts):
+    if not pts.isinteger():
+        return
+    else:
+        data = {username: pts}
+        return data
+
 def save(user_info):
     if path.exists(user_info):
         with open(user_info, "wb") as f:
@@ -12,9 +19,8 @@ def load(file):
         with open(file, "rb") as f:
             return pickle.load(f)
     return None
-"""
+
 USERS_FILE = "user_info.pkl"
 user_info = load(USERS_FILE)
 if user_info is None:
     user_info = {}
-"""

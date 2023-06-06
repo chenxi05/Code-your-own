@@ -24,5 +24,6 @@ def playing():
             else:
                 continue
             print()
-        
+        score = ser.libel(user_name, pts)
+        print(score)
     game = input("Enter U for a new user and G to play again: ").upper() == "G"

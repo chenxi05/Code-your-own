@@ -46,6 +46,6 @@ while playing:
 print()
 print("Thank you for playing!\n")
 user_info = ser.load(USER_FILE)
+print("SCORES:")
 for i in user_info.keys():
-    print("SCORES:")
     print(i +" : " + str(user_info[i]))

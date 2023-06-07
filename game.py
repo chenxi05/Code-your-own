@@ -34,7 +34,7 @@ while playing:
             if answer:
                 pts += 1
             print()
-        print(pts)
+        print("You got a score of", pts)
         user_info[user_name] = pts
         ser.save(user_info, USER_FILE)
         game = False
@@ -48,4 +48,4 @@ print("Thank you for playing!\n")
 user_info = ser.load(USER_FILE)
 for i in user_info.keys():
     print("SCORES:")
-    print(i +" : " + user_info[i])
+    print(i +" : " + str(user_info[i]))

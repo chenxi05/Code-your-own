@@ -10,7 +10,13 @@ trivia_questions = {
 }
 
 print("Welcome to our trivia game!")
-game = input("Enter U for a new user and G to play again: ").upper() == "G"
+game = input("Enter U for a new user and G to play again: ").upper()
+if game != "G" and game != "U":
+    game = input("Enter U for a new user and G to play again: ")
+if game == "G":
+    game = True
+if game == "U":
+    game = False
 print()
 playing = True
 
@@ -42,6 +48,12 @@ while playing:
     if not playing:
         break
     game = input("Enter U for a new user, G to play again: ").upper() == "G"
+    if game != "G" and game != "U":
+        game = input("Enter U for a new user and G to play again: ")
+    if game == "G":
+        game = True
+    if game == "U":
+        game = False
 
 print()
 print("Thank you for playing!\n")
